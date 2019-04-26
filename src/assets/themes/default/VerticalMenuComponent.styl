@@ -1,0 +1,78 @@
+.menu_theme_default.key-control
+  .menu__item:focus
+    background-color primary_normal
+    transition background-color ease .20s
+  .menu__item:focus > .menu__item-link-content > .menu__item-content > .menu__item-name, .menu__item:focus > .menu__item-link-content > .menu__item-content > .menu__item-name > .menu__item-name-link
+    color primary_text
+  .menu__item:focus > .menu__item-link-content > .menu__item-content > .menu__item-icon, .menu__item:focus > .menu__item-link-content > .menu__item-content > .menu__item-arrow
+    fill primary_text
+.menu_theme_default
+  background-color secondary_hover
+
+  .menu__header
+    background-color secondary_border
+
+  .menu__title
+    color white
+
+  .menu__item-link-content > .menu__item-content:hover
+  .menu__item-link-content.menu__item-content_active > .menu__item-content
+    background-color secondary_border
+
+  .menu__item-link-content > .menu__item-content:hover > .menu__item-name
+  .menu__item-link-content.menu__item-content_active > .menu__item-content > .menu__item-name
+    color brand_normal
+
+  .menu__item-link-content > .menu__item-content:hover > .menu__item-icon
+  .menu__item-link-content.menu__item-content_active > .menu__item-content > .menu__item-icon
+    fill brand_normal
+
+  .menu__item > .list
+    background secondary_border
+
+  .menu__item-icon
+    fill secondary_text
+
+  .menu__item-link-content.menu__item-content_active > .menu__item-content > .menu__item-arrow
+    fill brand_normal
+
+  .menu__item-arrow
+    fill secondary_text
+
+  .menu__section-icon
+    fill secondary_text
+
+  .menu__item-arrow
+    color white
+
+  .menu__item-icon
+    color white
+
+  .menu__item-name
+    color secondary_text
+  .menu__item-name-link
+    color inherit
+  .menu__section-text
+    color secondary_text
+
+  .menu__child-title
+    color brand_normal
+
+  a.menu__item-name-link
+    text-decoration none
+
+  a.menu__item-name-link:hover
+    text-decoration underline
+  .menu__item_active
+    border-right 3px solid brand_normal
+
+
+
+@media (max-width: 576px)
+  .menu_theme_default.key-control
+    .menu__item:focus
+      background none
+    .menu__item:focus > .menu__item-link-content > .menu__item-content > .menu__item-name, .menu__item:focus > .menu__item-link-content > .menu__item-content > .menu__item-name > .menu__item-name-link
+      color secondary_text
+    .menu__item:focus > .menu__item-link-content > .menu__item-content > .menu__item-icon, .menu__item:focus > .menu__item-link-content > .menu__item-content > .menu__item-arrow
+      fill brand_normal

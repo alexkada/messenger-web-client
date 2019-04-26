@@ -1,0 +1,369 @@
+@import './theme/variables'
+@import './theme/typography'
+@import './theme/mixins'
+@import './theme/fonts'
+@import './theme/badge'
+@import './theme/dropdown'
+@import './theme/block-preloader'
+@import './theme/buttons'
+@import './theme/tooltip'
+@import './theme/text-message'
+@import './theme/forms'
+
+
+.auth-content
+  align-items: center !important
+.form-content-size
+  min-width 300px
+  max-width 500px
+.fixed-container
+  width 100%
+  height 100%
+  position absolute
+  top 0
+  left 0
+@media (max-width: 576px)
+  body
+    overflow hidden
+  .auth-content
+    align-items: stretch !important
+  .form-content-size
+    max-width auto
+    min-width auto
+
+
+@media (max-width: 576px)
+  .configure-form-pading
+    padding-left 20px
+    padding-right 20px
+@media (min-width: 576px) and (max-width: 767px)
+  .configure-form-pading
+    padding-left 120px
+    padding-right 120px
+@media (min-width: 768px) and (max-width: 991px)
+  .configure-form-pading
+    padding-left 200px
+    padding-right 200px
+@media (min-width: 992px) and (max-width: 1199px)
+  .configure-form-pading
+    padding-left 230px
+    padding-right 230px
+@media (min-width: 1200px)
+  .configure-form-pading
+    padding-left 320px
+    padding-right 320px
+@media (min-width: 1920px)
+  .configure-form-pading
+    padding-left 720px
+    padding-right 720px
+
+.chat-list,.chat-list-without,.chat-list-page
+  position relative
+.chat-list__content
+  background-color #282a3c
+  position absolute
+  top 0
+  left 0
+  width 100%
+  height 100%
+
+
+timeDurationAnimation = 500ms
+
+.next-enter
+  transform: translateX(100%)
+.next-leave
+  transform: translateX(0)
+
+.next-leave-to {
+  animation: leaveToLeft timeDurationAnimation both cubic-bezier(0.165, 0.84, 0.44, 1);
+  //z-index: 0;
+}
+
+.next-enter-to {
+  animation: enterFromRight timeDurationAnimation both cubic-bezier(0.165, 0.84, 0.44, 1);
+  //z-index: 1;
+}
+
+
+.prev-enter
+  transform: translateX(100%)
+.prev-leave
+  transform: translateX(0)
+
+.prev-leave-to {
+  animation: leaveToRight timeDurationAnimation both cubic-bezier(0.165, 0.84, 0.44, 1);
+  //z-index: 1;
+}
+
+.prev-enter-to {
+  animation: enterFromLeft timeDurationAnimation both cubic-bezier(0.165, 0.84, 0.44, 1);
+  //z-index: 0;
+}
+
+
+
+
+
+
+@keyframes leaveToLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-25%);
+    filter: brightness(0.5);
+  }
+}
+
+@keyframes enterFromLeft {
+  from {
+    transform: translateX(-25%);
+    filter: brightness(0.5);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes leaveToRight {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes enterFromRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+
+
+.description-text-block
+  margin-top 5px
+  font_text_small()
+  padding 5px
+  color secondary_lighter_text
+  border-top 1px solid secondary_hover
+  flex-basis 100%
+
+.scroll-stop
+  height 100%
+  overflow hidden
+  position relative
+:focus
+  outline none
+html, body
+  height auto
+  font_body()
+html
+ // position fixed
+  //overflow hidden
+  width 100%
+  height 100%
+  //overscroll-behavior none
+body
+  width 100%
+  height 100%
+  -webkit-touch-callout none
+  -webkit-tap-highlight-color none
+
+
+@media (max-width: 576px)
+  body
+    -webkit-user-select none
+// @media (max-width: 576px)
+//   html
+//     width 100%
+//     height 100%
+//     position fixed
+//     overflow hidden
+
+
+
+
+.elem-menu
+  color brand_normal
+  cursor pointer
+  font_text()
+  font-weight mediumWeight
+  text-decoration none
+.elem-menu:hover
+  text-decoration underline
+.chat-list
+  height 100%
+.change-account-form
+  padding 20px
+
+
+.view-account__text-menu
+  margin-top 40px
+
+.view-account__text-info, .view-account__text-menu
+  width 100%
+  min-width 100%
+  max-width 100%
+.view-account__info-data
+  margin-top 20px
+  display flex
+  min-width 100%
+  align-items center
+  margin-bottom 20px
+
+.view-account__info
+  padding 0px 16px
+  flex-grow 1
+
+.view-account__fullname
+  font_title()
+  color lighter_normal
+.view-account__status
+  font_text_small()
+  color secondary_lighter_text
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ // overflow-y auto
+  //overflow-scrolling touch
+  //overscroll-behavior none
+ // scroll-behavior none
+
+.chat-menu-elements
+  position absolute
+  top 50px
+  right 0
+  width 300px
+  max-width 300px
+  z-index 3
+
+.chat-menu-elements > .btn
+  display block
+@media (max-width: 576px)
+  .chat-menu-elements
+    width 100%
+    max-width 100%
+h1
+  font_h1()
+h2
+  font_h2()
+h3
+  font_h3()
+h4
+  font_h4()
+
+// .collapsing
+//   transition none
+//   display none
+
+
+//Messenger start
+.icon-tab-message svg
+  width 28px !important
+.icon-tab svg
+  width 22px !important
+
+//Messenger end
+
+.collapse-transition
+    transition .2s height ease-in-out, .2s padding-top ease-in-out, .2s padding-bottom ease-in-out
+
+.clear-inline-block
+  font-size 0
+  line-height 0
+  letter-spacing -1px
+
+.blue
+  width 24px
+.blue svg path
+  fill blue
+  transition all ease .20s
+.blue:hover svg path
+  fill red
+.nulled-icon
+  display inline-block
+  line-height 0
+
+
+
+
+
+.btn, button, input[type="submit"]
+  margin: 0
+
+
+
+
+.hamburger
+  display flex
+  align-self center
+  flex-direction column
+  justify-content space-between
+  width 100%
+  height auto
+  cursor pointer
+.hamburger_size_default
+  height 16px
+.hamburger__meat, .hamburger__bottom-bun, .hamburger__top-bun
+  align-self flex-end
+  height 1px
+  width 100%
+  background #fff
+.hamburger_theme_brand > .hamburger__meat, .hamburger_theme_brand > .hamburger__bottom-bun, .hamburger_theme_brand > .hamburger__top-bun
+  background-color brand_normal
+.hamburger_theme_brand:hover > .hamburger__meat, .hamburger_theme_brand:hover > .hamburger__bottom-bun, .hamburger_theme_brand:hover > .hamburger__top-bun
+  background-color brand_hover
+.hamburger__meat
+  width 75%
+  transition all 200ms ease-in-out
+.hamburger__bottom-bun
+  width 50%
+  transition all 400ms ease-in-out
+.hamburger:hover div
+  width 100%
+.hamburger:hover .hamburger__top-bun
+  animation burger-hover 1s initial ease-in-out alternate
+.hamburger:hover .hamburger__meat
+  animation burger-hover 1s initial ease-in-out alternate forwards 200ms
+.hamburger:hover .hamburger__bottom-bun
+  animation burger-hover 1s initial ease-in-out alternate forwards 400ms
+
+
+
+@keyframes burger-hover
+  0%
+    width 100%
+  50%
+    width 50%
+  100%
+    width 100%
+
+
+@keyframes display-vis
+  from
+    display none !important
+  to
+    display block !important
+
+
+
+@import './themes/default.styl'

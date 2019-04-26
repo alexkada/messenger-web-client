@@ -1,0 +1,6 @@
+.contact(@click="clickAction")
+  AvatarComponent(size="40px", :isChange="false", :src="fileLink(contact)")
+  .contact__content
+    .contact__info
+      .contact__title {{contact.firstName ? contact.firstName: ''}} {{contact.lastName ? contact.lastName: ''}}
+      .contact__type Был(а) недавно

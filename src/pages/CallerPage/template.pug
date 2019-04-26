@@ -1,0 +1,22 @@
+MessageSingleLayout
+  .caller
+    .caller__info
+      .caller__fullname Alisa Tono
+      .caller__call-info(v-if="isCall") Входящий звонок
+      .caller__call-info(v-if="!isCall")
+        | Звонок
+        span.caller__call-info_time {{minutes}}:{{seconds}}
+
+    .caller__controls
+      .caller__control(v-if="isCall",style=""): ButtonElement(icon="delete"  @click.native="backAction();$router.back();" size="large" border="rounded" theme="danger" title="Отклонить")
+      .caller__control(v-if="isCall"): ButtonElement(icon="checkmark" @click.native="callAction" size="large" border="rounded" theme="success" title="Ответить")
+
+
+      .caller__control(v-if="!isCall"): ButtonElement(:icon="volume ? 'volume-on' : 'volume-off'" @click.native="toogleVolume" type="outline"  size="large" border="rounded" theme="transpb"  title="Выключить звук")
+      .caller__control(v-if="!isCall"): ButtonElement(icon="end-call"  @click.native="backAction();$router.back();"  border="rounded" theme="danger"   size="large" title="Положить трубку")
+      .caller__control-group(v-if="!isCall")
+        .caller__control(style="margin-bottom:20px;"): ButtonElement(:icon="microphone ? 'microphone-on' : 'microphone-off'" type="outline" @click.native="toogleMicrophone"  size="default-large"  border="rounded" theme="transpb"  title="Выключить Микрафон")
+        .caller__control: ButtonElement(:icon="camera ? 'camera-on' : 'camera-off'"  type="outline" size="default-large" border="rounded" @click.native="toogleCamera"  theme="transpb"  title="Выключить Камеру")
+
+
+

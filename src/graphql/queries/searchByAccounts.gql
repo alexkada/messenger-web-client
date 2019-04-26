@@ -1,0 +1,5 @@
+query searchByAccounts($text: String) {
+  searchByAccounts(text: $text) {
+    id,firstName,lastName,nickName,description,position,phone,email, photo{id,mimetype, filename, ext}
+  }
+}

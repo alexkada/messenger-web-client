@@ -1,0 +1,4 @@
+.chat-list__content
+  //ButtonElement(icon="add_contact",:contentOnly="true" @click.native="setAnimation('next');$router.push({name:'addContact'});") Добавить контакт
+  ContactComponent( v-for="(contact, index) in contacts", :key="contact.id", :contact="contact")
+  .chat-list__no-content(v-if="contacts.length == 0") У вас нет контактов

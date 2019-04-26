@@ -1,0 +1,73 @@
+@import "~@assets/theme/variables"
+@import "~@assets/theme/mixins"
+
+
+.input-search
+  position relative
+  flex-grow 1
+.exit-search
+  position absolute
+  right 0
+  top 50%
+  transform: translateY(-50%)
+
+.search-bar-elem
+  padding 8px
+  display flex
+  flex-grow 1
+  justify-content space-between
+  align-items center
+  border-bottom 1px solid secondary_hover
+  height 50px
+  max-height 50px
+  min-height 50px
+  max-width 100%
+  width 100%
+.icon-tab svg
+  width 22px !important
+.search-bar__input-search
+  -webkit-appearance: none
+  border-radius 1000px
+  padding 0px 8px
+  font_text()
+  height 30px
+  line-height 30px
+  border 1px solid secondary_hover
+  background-color secondary_hover
+  color secondary_light_text
+  transition border ease .5s, width ease .25s
+  width 200px
+  box-shadow none
+  outline none
+
+.full-search-input
+  width 100%
+.search-bar__input-search:focus
+  border 1px solid secondary_hover
+
+.search-bar__input-search::placeholder
+  color secondary_text
+
+.search-bar__content
+  position absolute
+  width 300px
+  height calc(100% - 100px)
+  background-color secondary_border
+  overflow-x hidden
+  overflow-y auto
+  top 50px
+  left 0px
+  z-index 2
+
+
+
+.search-bar__create
+  height 26px
+  fill brand_normal
+
+  transition fill ease .5s
+.search-bar__create:hover
+  cursor pointer
+  fill brand_border
+
+@import "./responsive/style"

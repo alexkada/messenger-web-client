@@ -1,0 +1,202 @@
+@import "~@assets/theme/variables"
+@import "~@assets/theme/mixins"
+
+
+
+// .alert-enter-active
+//   transition opacity .25s ease
+//   opacity 1
+
+// .alert-leave-active
+//   transition opacity .25s ease
+
+// .alert-enter, .slide-fade-leave-to
+//   opacity 0
+.progress-bar
+  position absolute
+  bottom 0
+  left 0
+  background none
+  width 100%
+  height 3px
+
+.progress-bar__bar
+  width 0
+  height 3px
+  background black
+  animation-name progress-bar-animation
+  animation-timing-function ease
+  animation-delay 0
+  animation-iteration-count 1
+  animation-direction normal
+  animation-fill-mode forwards
+  animation-play-state running
+
+
+@keyframes progress-bar-animation
+  from
+    width 0
+  to
+    width 100%
+
+.alert-leave
+  opacity 1
+  transition opacity .50s ease
+
+.alert-leave-active, .alert-leave-to
+  transition opacity .50s ease
+  opacity 0
+
+.alert
+  position relative
+  width 100%
+  max-width 100%
+  // padding 16px
+  font_text()
+  overflow hidden
+
+
+/*
+thinWeight = 100
+ultralightWeight = 200
+lightWeight = 300
+mediumWeight = 500
+semiboldWeight = 600
+heavyWeight = 800
+blackWeight = 900
+*/
+
+
+$alert_icon_size = 15
+.alert__text_padding_close
+  padding-right ($alert_icon_size + 32)px
+.alert__title
+  font-weight heavyWeight
+  margin-right 8px
+.alert__message
+  font-weight lightWeight
+.alert__container
+  position relative
+.alert__close
+  cursor pointer
+  height 100%
+  position absolute
+  top 16px
+  right 16px
+  line-height 0
+.alert__close > svg
+  height ($alert_icon_size)px
+
+.alert__actions
+  display inline-block
+  justify-content flex-end
+//.alert__actions > .btn
+
+.alert_border_curved
+  border-radius 8px
+.alert_border_box
+  border-radius 0px
+
+
+$triange = 6
+.alert__triange_container
+  position absolute
+  right -($triange)px
+  height 100%
+  display flex
+  align-items center
+.alert__triange
+  width 0
+  height 0
+  border-style solid
+  border-width ($triange)px 0 ($triange)px ($triange)px
+
+//
+
+.alert__container
+  display flex
+  flex-wrap nowrap
+  flex-direction row
+  align-items stretch
+.alert__icon
+  position relative
+  display flex
+  align-items center
+  padding 0px 24px
+.alert__icon > svg
+  height 32px
+
+
+
+
+
+.alert__content, .alert__text
+  width 100%
+.alert__text
+  display flex
+  flex-flow row nowrap
+  align-items center
+  // justify-content space-between
+
+.alert__actions
+  display flex
+  flex-grow 1
+  //padding 12px 16px
+  padding-top 12px
+  padding-bottom 12px
+  padding-right 8px
+  padding-left 16px
+  flex-flow row wrap
+  //justify-content space-between
+  align-content center
+  padding-left 0
+  //flex-basis 100%
+.alert__actions > .btn
+  margin-top 4px
+  margin-bottom 4px
+  margin-right 8px
+  flex-grow 0
+
+// .alert__actions > .btn:last-child
+//   margin-right 0px
+
+
+.alert__text-basic
+  padding 16px
+  flex-grow 1
+
+// .alert__title
+//   white-space nowrap
+//   overflow hidden
+//   text-overflow ellipsis
+// .alert__message
+//   white-space nowrap
+//   overflow hidden
+//   text-overflow ellipsis
+
+.alert_type_fill .alert__icon
+  padding-right 0px
+
+for $color, $i in $colors
+  .alert_type_outline.alert_theme_{$color} .alert__icon.alert__icon_type_fill
+    background-color $color+"_normal"
+    fill white
+  .alert_type_outline.alert_theme_{$color} .alert__icon.alert__icon_type_fill .alert__triange
+    border-color transparent transparent transparent $color+"_normal"
+  .alert_type_outline.alert_theme_{$color} .alert__icon.alert__icon_type_outline
+    background-color white
+    fill $color+"_normal"
+  .alert_type_fill.alert_theme_{$color} .alert__icon.alert__icon_type_fill, .alert_type_fill.alert_theme_{$color} .alert__icon.alert__icon_type_outline
+    fill $color+"_text"
+  .alert_type_fill.alert_theme_{$color}
+    background $color+"_normal"
+    color $color+"_text"
+  .alert_type_outline.alert_theme_{$color}
+    background white
+    border 1px solid $color+"_normal"
+    color $color+"_normal"
+  .alert_type_fill.alert_theme_{$color} .alert__close
+    fill white
+  .alert_type_outline.alert_theme_{$color} .alert__close
+    fill $color+"_normal"
+@import "./responsive/style"

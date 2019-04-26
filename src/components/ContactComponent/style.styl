@@ -1,0 +1,62 @@
+@import "~@assets/theme/variables"
+@import "~@assets/theme/mixins"
+
+
+
+.contact:last-child
+
+.contact
+  display flex
+  flex-direction row
+  flex-wrap nowrap
+  justify-content flex-start
+  padding-left 10px
+  align-items center
+  cursor pointer
+
+.contact__content
+  display flex
+  justify-content space-between
+  flex-grow 1
+  max-width: calc(100% - 40px);
+  border-bottom 1px solid secondary_hover
+  padding-right 10px
+  padding-top 5px
+  padding-bottom 5px
+  margin-left 10px
+  align-items center
+
+.contact:last-child > .contact__content
+  border-bottom none
+
+.contact__photo
+  overflow hidden
+  width 40px
+  height 40px
+  max-width 40px
+  max-height 40px
+  min-width 40px
+  min-height 40px
+  border-radius 1000px
+  flex-grow 1
+
+.contact__type
+  color secondary_lighter_text
+
+// .contact__info, .contact__last-message-title, .contact__last-message-text
+//   padding-left 10px
+// .contact__title
+// .contact__date
+// .contact__last-message-title
+.contact__title
+  font_text()
+  font-weight bold
+  color lighter_border
+.contact__last-message-text, .contact__date, .contact__last-message-title
+  font_text_small()
+  color secondary_lighter_text
+.contact__last-message-text
+  white-space nowrap
+  text-overflow ellipsis
+  overflow hidden
+@import "./responsive/style"

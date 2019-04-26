@@ -1,0 +1,17 @@
+@media (max-width: 576px)
+  .alert__text
+    flex-flow row wrap
+  .alert__icon
+    display none
+  .alert__actions
+    padding 8px
+    justify-content center
+@media (min-width: 576px) and (max-width: 767px)
+  @import "./sm"
+@media (min-width: 768px) and (max-width: 991px)
+  @import "./md"
+@media (min-width: 992px) and (max-width: 1199px)
+  @import "./lg"
+@media (min-width: 1200px)
+  @import "./elg"
+

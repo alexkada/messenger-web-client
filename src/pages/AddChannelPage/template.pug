@@ -1,0 +1,10 @@
+MessageSingleLayout
+  template(slot="topBar")
+    EditorBarComponent(titleText="Новый канал" saveText="Создать")
+  .content-page
+    .change-account-form
+      .base-form
+        AvatarComponent(src="" :isChange="true", size="65px")
+        TextComponent(label="Название канала" labelPosition="placeholder").channel-name-input
+      TextComponent(label="Описание" type="block" labelPosition="placeholder" style="margin-top: 20px;" description="Можете указать дополнительное описание для канала")
+

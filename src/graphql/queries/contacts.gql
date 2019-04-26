@@ -1,0 +1,5 @@
+query getContacts {
+  contacts {
+    id,firstName,lastName,nickName,description,position,phone,email,photo{id,mimetype, filename, ext}, isOnline, createdAt, updatedAt, onlinedAt
+  }
+}

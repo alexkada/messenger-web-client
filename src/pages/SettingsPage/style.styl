@@ -1,0 +1,29 @@
+@import "~@assets/theme/variables"
+@import "~@assets/theme/mixins"
+
+
+.user-info-data
+  margin-top 20px
+  display flex
+  flex-direction row
+  align-items center
+  cursor pointer
+
+.user-info-data__info
+  margin-left 20px
+  flex-grow 1
+.user-info-data__name
+  font_text()
+  font-weight bold
+.user-info-data__phone
+  font_text()
+.user-info-data__email
+  font_text()
+.user-info-data__nickname
+  font_text()
+.user-info-data__icon svg
+  width 22px
+.user-info-data__icon
+  pointer-events none
+
+@import "./responsive/style"

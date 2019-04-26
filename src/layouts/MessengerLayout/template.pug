@@ -1,0 +1,9 @@
+.container-fluid(style="").fixed-container
+  .row(style="height:auto;")
+    .chat-wrapper
+      slot(name="bar")
+      //SearchBarComponent
+      .chat-list(v-ios:scroll="true")
+        slot
+      TabBarComponent
+

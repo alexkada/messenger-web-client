@@ -1,0 +1,41 @@
+Transition(leave-active-class="animated fadeOut faster"): .alert(:class="['alert_theme_'+theme, !isShow ? 'alert_closed' : '', 'alert_border_'+border, 'alert_type_'+type]", v-show="isShow")
+  .progress-bar(v-if="showProgress")
+    .progress-bar__bar(:style="{'animationDuration':progressDuration}")
+  .alert__container
+    .alert__icon(v-if="icon", :class="['alert__icon_type_'+iconType]")
+      .alert__triange_container(v-if="iconType == 'fill' && type == 'outline'"): .alert__triange
+      IconElement(:src="icon")
+    .alert__content
+      .alert__text(:class="[buttons.length == 0 && isClose ? 'alert__text_padding_close': '']")
+        span.alert__text-basic
+          //span.alert__title {{title}}
+          span.alert__message
+            span.alert__title {{title}}
+            span: slot
+        span.alert__actions(v-if="buttons.length > 0")
+
+          ButtonElement(v-for="(button, index) in formatButtons",
+                        :key="index",
+                        @click.native="clickHandler(button.callback)",
+                        :icon="button.icon",
+                        :iconPosition="button.iconPosition",
+                        :theme="button.theme",
+                        :type="button.type",
+                        :size="button.size",
+                        :border="button.border",
+                        :contentOnly="button.contentOnly",
+                        :state="button.state",
+                        :theme_normal_content="button.theme_normal_content",
+                        :theme_hover_content="button.theme_hover_content",
+                        :theme_active_content="button.theme_active_content",
+                        :theme_normal_wrapper="button.theme_normal_wrapper",
+                        :theme_hover_wrapper="button.theme_hover_wrapper",
+                        :theme_active_wrapper="button.theme_active_wrapper",
+                        :contentReverseNormal="button.contentReverseNormal",
+                        :contentReverseHover="button.contentReverseHover",
+                        :contentReverseActive="button.contentReverseActive",
+                        :textTransform="button.textTransform",
+                        ) {{button.text}}
+      .alert__close(@click="closeHandler", v-if="buttons.length == 0 && isClose")
+        IconElement(src="delete")
+

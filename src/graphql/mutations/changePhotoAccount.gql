@@ -1,0 +1,5 @@
+mutation($fileId: String) {
+  changePhotoAccount(fileId: $fileId) {
+    id,filename,mimetype,ext
+  }
+}

@@ -1,0 +1,33 @@
+@import "~@assets/theme/variables"
+@import "~@assets/theme/mixins"
+
+
+.avatar-component >  img
+  // min-height 65px
+  // max-height 65px
+  // max-width 65px
+  // min-width 65px
+  border-radius 50%
+  overflow hidden
+
+.avatar-component.avatar-component__change > img
+  cursor pointer
+.avatar-component__no-avatar
+  border-radius 50%
+  border 1px solid lighter_border
+  display flex
+  justify-content center
+  align-items center
+
+.avatar-component__no-avatar svg
+  width 50%
+  fill lighter_border
+  cursor pointer
+
+.avatar-component__avatar
+  background-size cover
+  background-repeat no-repeat
+  background-position center center
+  overflow hidden
+  border-radius 50%
+@import "./responsive/style"

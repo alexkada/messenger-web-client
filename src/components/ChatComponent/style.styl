@@ -1,0 +1,62 @@
+@import "~@assets/theme/variables"
+@import "~@assets/theme/mixins"
+
+
+
+.chat:last-child
+
+.chat
+  display flex
+  flex-direction row
+  flex-wrap nowrap
+  justify-content flex-start
+  padding-left 10px
+  align-items center
+  cursor pointer
+
+.chat__content
+  flex-grow 1
+  max-width: calc(100% - 60px);
+  border-bottom 1px solid secondary_hover
+  padding-right 10px
+  padding-top 5px
+  padding-bottom 5px
+  margin-left 10px
+
+.chat:last-child > .chat__content
+  border-bottom none
+
+.chat__photo
+  overflow hidden
+  width 50px
+  height 50px
+  max-width 50px
+  max-height 50px
+  min-width 50px
+  min-height 50px
+  border-radius 1000px
+  flex-grow 1
+
+.chat__info
+
+  display flex
+  flex-direction row
+  flex-wrap nowrap
+  justify-content space-between
+// .chat__info, .chat__last-message-title, .chat__last-message-text
+//   padding-left 10px
+// .chat__title
+// .chat__date
+// .chat__last-message-title
+.chat__title
+  font_text()
+  font-weight bold
+  color lighter_border
+.chat__last-message-text, .chat__date, .chat__last-message-title
+  font_text_small()
+  color secondary_lighter_text
+.chat__last-message-text
+  white-space nowrap
+  text-overflow ellipsis
+  overflow hidden
+@import "./responsive/style"

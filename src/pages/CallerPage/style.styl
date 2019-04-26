@@ -1,0 +1,42 @@
+@import "~@assets/theme/variables"
+@import "~@assets/theme/mixins"
+
+
+.caller
+  display flex
+  min-width 100%
+  min-height 100%
+  flex-direction column
+  flex-wrap nowrap
+  align-items stretch
+  justify-content stretch
+  background-color brand_hover
+
+.caller__info
+  min-width 100%
+  flex-grow 1
+.caller__controls
+  min-width 100%
+  padding 40px 0
+
+.caller__fullname
+  text-align center
+  margin-top 40px
+  font_h3()
+  color white
+.caller__call-info, .caller__call-info_time
+  text-align center
+  color white
+  font_text()
+.caller__call-info_time
+  font-weight mediumWeight
+  margin-left 10px
+.caller__controls
+  justify-content space-around
+  align-items center
+  display flex
+  flex-direction row
+  flex-wrap wrap
+  min-width 100%
+
+@import "./responsive/style"

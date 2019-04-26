@@ -1,0 +1,38 @@
+@import "~@assets/theme/variables"
+@import "~@assets/theme/mixins"
+
+
+
+
+
+.side-bar
+  min-height 100%
+  transition max-width ease-in time_default
+  padding 0
+.side-bar__container, .side-bar
+  max-width 300px
+.side-bar__container
+  width 300px
+.side-bar__header, .side-bar__content, .side-bar__footer
+  max-width 100%
+
+.side-bar__content
+  padding-top 32px
+  padding-bottom 32px
+
+
+
+.side-bar_fixed-left, .side-bar_fixed-right
+  position fixed
+  z-index 2
+  top 0
+  height 100%
+.side-bar_fixed-left
+  left 0
+  transition left ease-in time_default
+.side-bar_fixed-right
+  right 0
+  transition right ease-in time_default
+
+
+@import './responsive/style'

@@ -1,0 +1,10 @@
+.container-fluid(style="").fixed-container.fiexed-page
+  .row(style="height:auto;")
+    .chat-wrapper-page
+      BarComponent(position="top"  v-if="$slots.topBar")
+        slot(name="topBar")
+      .chat-list-page(v-ios:scroll="true")
+        slot
+      BarComponent(position="bottom" v-if="$slots.bottomBar")
+        slot(name="bottomBar")
+

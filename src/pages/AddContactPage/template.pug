@@ -1,0 +1,9 @@
+MessageSingleLayout
+  template(slot="topBar")
+    EditorBarComponent(titleText="Создание контакта")
+  .content-page
+    .change-account-form
+      TextComponent(label="Имя", type="line",  labelPosition="placeholder" v-model="firstname")
+      TextComponent(label="Фамилия", type="line",  labelPosition="placeholder" v-model="lastname")
+      TextComponent(label="Номер телефона", type="line" labelPosition="placeholder" :isEnd="true", v-model="phone")
+

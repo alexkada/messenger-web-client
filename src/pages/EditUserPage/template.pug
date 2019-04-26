@@ -1,0 +1,15 @@
+MessageSingleLayout
+  template(slot="topBar")
+    EditorBarComponent(titleText="Изменение аккаунта" @save="saveData")
+  .content-page
+    .change-account-form
+      AvatarComponent(size="70px" :isChange="true" v-model="avatar", :src="fileLink(account)")
+      .change-account-form__fullname
+        TextComponent(type="line"  label="Имя", labelPosition="placeholder" v-model="firstName")
+        TextComponent(type="line" :isEnd="true" label="Фамилия", labelPosition="placeholder", v-model="lastName")
+      .description-text-block Пожалуйста, добавьте имя и фотографию
+      TextComponent(placeholder="" type="block" style="margin-top: 20px;margin-bottom:20px;" label="О себе", v-model="description" description="Любые подрбности, например: возраст, город, род зянятий.")
+      TextComponent(placeholder="Введите имя пользователя", type="line" label="Имя пользователя", v-model="nickName")
+      TextComponent(placeholder="Введите номер", type="line"  label="Номер", v-model="phone")
+      //TextComponent(placeholder="Введите email", type="line" :isEnd="true" label="E-mail", v-model="email")
+

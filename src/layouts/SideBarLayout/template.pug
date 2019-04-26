@@ -1,0 +1,25 @@
+.messenger
+  transition(
+  :name="barAnimation",
+  @before-enter="beforeEnter",
+  @enter="enter",
+  @after-enter="afterEnter",
+
+  @before-leave="beforeLeave",
+  @leave="leave",
+  @after-leave="afterLeave"
+)
+    .messenger__side-bar(v-show="isShowSideBar")
+      SideBarComponent
+  .messenger__content(:class="[isShowNextPage ? 'next-page-show' : 'prev-page-show']")
+    transition(
+      :name="mobileAnimationType",
+      @before-enter="beforeEnter",
+      @enter="enter",
+      @after-enter="afterEnter",
+
+      @before-leave="beforeLeave",
+      @leave="leave",
+      @after-leave="afterLeave"
+    )
+      router-view

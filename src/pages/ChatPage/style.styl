@@ -1,0 +1,108 @@
+@import "~@assets/theme/variables"
+@import "~@assets/theme/mixins"
+
+
+// .chat-info__menu
+
+
+// .icon-back
+//   margin-left 10px
+.chat-info-bar
+  display flex
+  flex-direction row
+  flex-wrap nowrap
+  height 50px
+  width 100%
+  max-height 50px
+  max-width 100%
+  align-items center
+
+.chat-info__info
+  cursor pointer
+  padding-left 10px
+  flex-grow 1
+
+.chat-info__title
+  font_text()
+  font-weight bold
+  color lighter_border
+
+.chat-info__type
+  font_text_small()
+  font-weight bold
+  color secondary_light_text
+.chat-info__photo
+  cursor pointer
+  width 40px
+  height  40px
+  max-width 40px
+  max-height 40px
+  overflow hidden
+  border-radius 4000px
+  margin-left 10px
+
+.chat-page-wrapper
+  height 100vh
+  overflow hidden
+  width 100%
+  display flex
+  flex-direction column
+.chat-page
+  flex-grow 1
+  overflow-y scroll
+  // width (100% - 300px)
+  background secondary_border
+  //padding 45px 0
+  padding 0
+  position relative
+  width  calc(100% + 17px)
+
+.chat-page__content
+  color #fff
+  font-size 34px
+  line-height: 40px
+.chat-page__header
+  border-bottom 1px solid secondary_hover
+
+.chat-page__footer
+  color white
+  width 100%
+  border-top 1px solid secondary_hover
+  height 45px
+  background-color secondary_border
+
+.chat-page__header, .chat-page__footer
+  color white
+  height 50px
+  width 100%
+  background-color secondary_border
+  min-height 50px
+
+
+.sender-message-interface
+  display flex
+  flex-direction row
+  flex-wrap nowrap
+  justify-content space-between
+  align-items center
+  height 100%
+  min-height 50px
+.input-message-text
+  margin-top 4px
+  margin-bottom 4px
+  padding 0 !important
+  resize none
+  width 100%
+  box-shadow none
+  text-shadow none
+  outline none
+  min-height auto
+  color:lighter_normal
+  font_text()
+  border none
+  overflow hidden
+
+.input-message-text
+  flex-grow 1
+
+@import "./responsive/style"

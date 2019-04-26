@@ -1,0 +1,13 @@
+WithoutSideBarLayout
+  .auth-content
+    .auth-form.form-content-size
+      .auth-logo Auilo Messenger
+      TextComponent(labelPosition="placeholder" textType="email" v-model="email" label="Электронная почта")
+      TextComponent(labelPosition="placeholder" textType="text" v-model="password" label="Пароль")
+      TextComponent(labelPosition="placeholder" v-model="invite" label="Инвайт" :isEnd="true")
+      ButtonElement(theme="brand" border="rounded" style="margin-top:20px;" @click.native="register") Создать аккаунт
+    .auth-menu
+      .elem-menu(@click="$router.push({name: 'login'})") Войти
+
+
+

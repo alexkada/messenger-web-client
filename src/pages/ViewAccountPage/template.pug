@@ -1,0 +1,19 @@
+MessageSingleLayout
+  template(slot="topBar")
+    EditorBarComponent(titleText="Информация", saveText="")
+  .content-page
+    .change-account-form
+      .view-account__info-data
+        AvatarComponent(:src="fileLink(contact)" size="65px")
+        .view-account__info
+          .view-account__fullname(v-if="contact && contact.firstName && contact.lastName") {{contact.firstName + ' ' + contact.lastName}}
+          .view-account__status был(а) недавно
+      .view-account__text-info
+        TextInfoComponent(title="номер телефона", :text="contact.phone" v-if="contact && contact.phone")
+        TextInfoComponent(title="имя пользователя", :text="'@'+contact.nickName "  v-if="contact && contact.nickName")
+        TextInfoComponent(title="e-mail", :text="contact.email"  v-if="contact && contact.email")
+      .view-account__text-menu
+        TextMenuComponent(title="Отправить сообщение" @click.native="push({name:'chatView', params: {chatId: 1}})")
+        TextMenuComponent(title="Позвонить" @click.native="$router.push({name:'caller', params: {accountId: 1}})")
+        TextMenuComponent(title="Добавить в контакт" v-if="contact && contact.id &&  !isContact" @click.native="addContactAction")
+        TextMenuComponent(title="Удалить из контактов" v-if="contact && contact.id &&  isContact" @click.native="removeContactAction")

@@ -1,0 +1,15 @@
+.container-fluid(style="").fixed-container
+  .row(style="height:auto;")
+    .chat-wrapper
+      keep-alive
+        component(:is="bars[stateBar].top")
+      .chat-list(v-ios:scroll="true")
+        keep-alive
+          component(:is="bars[stateBar].content")
+      TabBarComponent(
+        :stateBar="stateBar"
+        :callsAction="callsEvent"
+        :chatsAction="chatsEvent"
+        :contactsAction="contactsEvent"
+        :settingsAction="settingsEvent"
+      )

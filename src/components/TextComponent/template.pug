@@ -1,0 +1,6 @@
+.text-component(:class="[isEnd ? 'text-component__end' : '']")
+  .text-component__block
+    .text-component__label(v-if="labelPosition == 'left'") {{label}}
+    input( v-if="type === 'line'" :type="textType" v-on="listeners" :placeholder="labelPosition == 'placeholder' ? label : placeholder" :value="value").text-component__text
+    textarea( v-if="type === 'block'" :placeholder="labelPosition == 'placeholder' ? label : placeholder" rows="1" :value="value" v-on="listeners" v-autosize="value").text-component__text
+  .text-component__description(v-if="description.length > 0") {{description}}

@@ -1,0 +1,91 @@
+@import "~@assets/theme/variables"
+@import "~@assets/theme/mixins"
+
+
+
+
+
+.notification-center__backdrop
+  position absolute
+  width 100%
+  height 100%
+
+.notification-center_hover-pause > .alert:hover > .progress-bar > .bar
+  animation-play-state paused
+
+.notification-center > .alert
+  transition all ease-out .6s
+  max-width 600px
+
+.notification-center_position_left-top
+  left 0
+  top 0
+.notification-center_position_left-bottom
+  left 0
+  bottom 0
+
+.notification-center_position_right-top
+  right 0
+  top 0
+.notification-center_position_right-bottom
+  right 0
+  bottom 0
+
+.notification-center_position_right-bottom > .alert,
+.notification-center_position_center-bottom > .alert,
+.notification-center_position_left-bottom > .alert,
+.notification-center_position_right-center > .alert,
+.notification-center_position_center-center > .alert,
+.notification-center_position_left-center > .alert
+  margin-top 10px
+.notification-center_position_right-bottom > .alert:first-child,
+.notification-center_position_center-bottom > .alert:first-child,
+.notification-center_position_left-bottom > .alert:first-child,
+.notification-center_position_right-center > .alert:first-child,
+.notification-center_position_center-center > .alert:first-child,
+.notification-center_position_left-center > .alert:first-child
+  margin-top 0 !important
+
+.notification-center_position_right-top > .alert,
+.notification-center_position_left-top > .alert,
+.notification-center_position_center-top > .alert
+  margin-bottom 10px
+
+.notification-center_position_right-top > .alert:last-child,
+.notification-center_position_left-top > .alert:last-child,
+.notification-center_position_center-top > .alert:last-child
+  margin-bottom 0px !important
+
+.notification-center_position_right-center
+  right 0
+  top 50%
+  transform translate(0, -50%)
+
+.notification-center_position_left-center
+  left 0
+  top 50%
+  transform translate(0, -50%)
+
+
+.notification-center_position_center-top
+  top 0
+  left 50%
+  transform translate(-50%, 0)
+
+.notification-center_position_center-bottom
+  bottom 0
+  left 50%
+  transform translate(-50%, 0)
+
+.notification-center_position_center-center
+  top 50%
+  left 50%
+  transform translate(-50%, -50%)
+
+.notification-center
+  z-index 999999999999999
+  position absolute
+  padding 20px
+
+
+@import "./responsive/style"

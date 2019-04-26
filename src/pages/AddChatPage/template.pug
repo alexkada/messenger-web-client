@@ -1,0 +1,7 @@
+MessageSingleLayout
+  template(slot="topBar")
+    EditorBarComponent(titleText="Создание чата")
+  .content-page(style="padding: 20px;")
+    TextComponent(labelPosition="placeholder" label="Поиск..." v-model="search" view="round")
+    ListContactsComponent(@clickEvent="clickAction")
+

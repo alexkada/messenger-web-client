@@ -1,0 +1,17 @@
+MessageSingleLayout
+  template(slot="topBar")
+    EditorBarComponent(titleText="Информация", saveText="Изменить")
+  .content-page
+    .change-account-form
+      .view-account__info-data
+        AvatarComponent(src="" size="65px")
+        .view-account__info
+          .view-account__fullname Некий канал
+          .view-account__status 8 702 подписчика
+      .view-account__text-info
+        TextInfoComponent(title="Информация", text="Некая информация о канале")
+        //- TextInfoComponent(title="имя пользователя", text="@alisaTono")
+        //- TextInfoComponent(title="e-mail", text="alisa@tono.ru")
+      .view-account__text-menu
+        //- TextMenuComponent(title="Отправить сообщение")
+        TextMenuComponent(title="Покинуть канал", theme="danger")

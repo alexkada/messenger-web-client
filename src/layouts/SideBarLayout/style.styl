@@ -1,0 +1,20 @@
+@import "~@assets/theme/variables"
+@import "~@assets/theme/mixins"
+
+
+
+
+// .messenger__content
+//   position relative
+//   z-index 2
+
+.messenger__content.next-page-show :first-child
+  z-index 2
+.messenger__content.next-page-show :last-child
+  z-index 4
+
+.messenger__content.prev-page-show :first-child
+  z-index 4
+.messenger__content.prev-page-show :last-child
+  z-index 2
+@import "./responsive/style"

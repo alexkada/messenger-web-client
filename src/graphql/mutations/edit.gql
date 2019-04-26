@@ -1,0 +1,5 @@
+mutation editAccount($account:EditAccountInput!){
+  edit(account: $account) {
+    id,firstName,lastName,nickName,description,position,phone,email,isConfigured, photo{id,mimetype, filename, ext}
+  }
+}

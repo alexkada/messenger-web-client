@@ -1,0 +1,9 @@
+.container-fluid(style="").fixed-container-without
+  .row(style="height:auto;")
+    .chat-wrapper-without
+      BarComponent(position="top"  v-if="$slots.topBar")
+        slot(name="topBar")
+      .chat-list-without(v-ios:scroll="true")
+        slot
+      BarComponent(position="bottom" v-if="$slots.bottomBar")
+        slot(name="bottomBar")

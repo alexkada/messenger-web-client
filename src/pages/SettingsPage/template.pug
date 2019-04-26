@@ -1,0 +1,10 @@
+.chat-list__content(style="display: flex; flex-direction: column; justify-content:flex-start;padding:0 20px;")
+  .user-info-data(@click="setAnimation('next');$router.push({name: 'editUser'});")
+    AvatarComponent(size="70px", :src="fileLink(account)")
+    .user-info-data__info
+      .user-info-data__name(v-if="account && account.firstName && account.lastName") {{fullNameAccount}}
+      .user-info-data__phone(v-if="account && account.phone") {{account.phone}}
+      //.user-info-data__email alexx.orlovv@gmail.com +7(929) 534-03-34
+      .user-info-data__nickname(v-if="account && account.nickName") {{nickNameAccount}}
+    ButtonElement(icon="arrow-right" :contentOnly="true").user-info-data__icon
+  ButtonElement(border="rounded", style="margin-top:40px;", theme="brand" @click.native="logoutAction") Выход

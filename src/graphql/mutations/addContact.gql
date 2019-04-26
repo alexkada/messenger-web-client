@@ -1,0 +1,5 @@
+mutation addContact($contactId: String!) {
+  addContact(contactId: $contactId) {
+    id,firstName,lastName,nickName,description,position,phone,email,isConfigured, photo{id,mimetype, filename, ext}
+  }
+}

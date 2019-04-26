@@ -1,0 +1,36 @@
+@import "~@assets/theme/variables"
+@import "~@assets/theme/mixins"
+
+.auth-logo
+  margin-bottom 30px
+  font_title()
+  font-weight mediumWeight
+
+.auth-content
+  padding 40px
+  min-width 100%
+  align-items stretch
+  min-height 100%
+  display flex
+  flex-direction column
+  flex-wrap nowrap
+ .auth-form
+   flex-grow 1
+   display flex
+   align-items center
+   justify-content center
+   flex-direction column
+  .auth-menu
+    margin-top 20px
+    text-align center
+
+
+input::-webkit-contacts-auto-fill-button {
+  visibility: hidden;
+  display: none !important;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+}
+
+@import "./responsive/style"

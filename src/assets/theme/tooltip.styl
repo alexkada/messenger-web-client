@@ -1,0 +1,193 @@
+
+$toolip_background_color = gray_900
+$toolip_max_width = 200px
+$tooltip_opacity = 1
+$tooltip_space = 5px
+
+
+
+/* KEYFRAMES */
+@keyframes tooltips-vert-bottom
+  from
+    opacity 0
+    transform translate(-50%, 10px)
+  to
+    opacity $tooltip_opacity
+    transform translate(-50%, 5px)
+
+@keyframes tooltips-vert-top
+  from
+    opacity 0
+    transform translate(-50%, -10px)
+  to
+    opacity $tooltip_opacity
+    transform translate(-50%, -5px)
+
+
+@keyframes tooltips-horz-left
+  from
+    opacity 0
+    transform translate(-10px, -50%)
+  to
+    opacity $tooltip_opacity
+    transform translate(-5px, -50%)
+
+@keyframes tooltips-horz-right
+  from
+    opacity 0
+    transform translate(10px, -50%)
+  to
+    opacity $tooltip_opacity
+    transform translate(5px, -50%)
+
+
+.tooltip:after
+  background $toolip_background_color
+  color #fff
+
+.tooltip_placement_top:before
+  border-top-color $toolip_background_color !important
+
+.tooltip_placement_bottom:before
+  border-bottom-color $toolip_background_color !important
+
+.tooltip_placement_right:before
+  border-right-color $toolip_background_color !important
+
+.tooltip_placement_left:before
+  border-left-color $toolip_background_color !important
+
+
+for $color, $i in $colors
+  .tooltip_theme_{$color}:after
+    background $color+"_border"
+    color $color+"_text"
+
+  .tooltip_theme_{$color}.tooltip_placement_top:before
+    border-top-color $color+"_border" !important
+
+  .tooltip_theme_{$color}.tooltip_placement_bottom:before
+    border-bottom-color $color+"_border" !important
+
+  .tooltip_theme_{$color}.tooltip_placement_right:before
+    border-right-color $color+"_border" !important
+
+  .tooltip_theme_{$color}.tooltip_placement_left:before
+    border-left-color $color+"_border" !important
+
+
+.tooltip
+  position relative
+  will-change transform
+
+.tooltip:before
+.tooltip:after
+  text-transform none
+  font_text()
+  user-select none
+  pointer-events none
+  position absolute
+  display none
+  opacity 0
+  transition .25s opacity ease
+
+.tooltip:before
+  content ''
+  border 5px solid transparent /* opinion 4 */
+  z-index 1001 /* absurdity 1 */
+
+.tooltip:after
+  content attr(content) /* magic! */
+  text-align center
+  min-width auto
+  max-width $toolip_max_width
+  white-space nowrap
+  overflow hidden
+  text-overflow ellipsis
+  padding 8px 16px
+  border-radius 20px
+  z-index 1000 /* absurdity 2 */
+
+// /* Make the tooltips respond to hover */
+.tooltip:hover::before,.tooltip:hover::after
+  display block
+  //opacity 1
+
+.tooltip_show::before,.tooltip_show::after
+  display block
+  opacity 1
+.tooltip_trigger_disable:hover::before,.tooltip_trigger_disable:hover::after
+  display none !important
+  opacity 0 !important
+  animation none !important
+
+.tooltip_show.tooltip_trigger_disable:hover::before,.tooltip_show.tooltip_trigger_disable:hover::after
+  display block !important
+  opacity 1 !important
+  //animation none !important
+// /* don't show empty tooltips */
+// .tooltip:before,.tooltip:after
+//   display none !important
+
+/* FLOW: UP */
+.tooltip_placement_top:before
+  bottom 100%
+  border-bottom-width 0
+
+
+.tooltip_placement_top:after
+  bottom "calc(100% + %s)" % $tooltip_space
+
+.tooltip_placement_top:before,.tooltip_placement_top:after
+  left 50%
+  transform translate(-50%, -($tooltip_space))
+
+// /* FLOW: DOWN */
+.tooltip_placement_bottom:before
+  top 100%
+  border-top-width 0
+
+
+.tooltip_placement_bottom:after
+  top "calc(100% + %s)" % $tooltip_space
+
+.tooltip_placement_bottom:before,.tooltip_placement_bottom:after
+  left 50%
+  transform translate(-50%, $tooltip_space)
+
+// /* FLOW: LEFT */
+.tooltip_placement_left:before
+  top 50%
+  border-right-width 0
+  right "calc(100% + %s)" % ($tooltip_space + 1)
+  transform translate(0, -50%)
+
+.tooltip_placement_left:after
+  top 50%
+  right "calc(100% + %s)" % ($tooltip_space * 2)
+  transform translate(0, -50%)
+
+// /* FLOW: RIGHT */
+.tooltip_placement_right:before
+  top 50%
+  border-left-width 0
+  left "calc(100% + %s)" % ($tooltip_space + 1)
+  transform translate(0, -50%)
+
+.tooltip_placement_right:after
+  top 50%
+  left "calc(100% + %s)" % ($tooltip_space * 2)
+  transform translate(0, -50%)
+
+
+// /* FX All The Things */
+.tooltip_placement_bottom:hover::before,.tooltip_placement_bottom:hover::after
+  animation tooltips-vert-bottom .25s ease-out forwards
+
+.tooltip_placement_top:hover::before,.tooltip_placement_top:hover::after
+  animation tooltips-vert-top .25s ease-out forwards
+
+.tooltip_placement_left:hover::before,.tooltip_placement_left:hover::after
+  animation tooltips-horz-left .25s ease-out forwards
+.tooltip_placement_right:hover::before,.tooltip_placement_right:hover::after
+  animation tooltips-horz-right .25s ease-out forwards

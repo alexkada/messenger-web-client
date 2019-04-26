@@ -1,0 +1,5 @@
+.editor-bar
+  ButtonElement(icon="back" :contentOnly="true", theme="brand" @click.native="setAnimation('prev');$router.back();").editor-bar__prev-button {{prevText}}
+  .editor-bar__title {{titleText}}
+  ButtonElement( v-if="saveText.length > 0" :contentOnly="true", theme="dark_light" @click.native="saveEvent").editor-bar__save-button {{saveText}}
+  div(v-if="saveText.length == 0", style="width:60px;height:30px;")

@@ -1,0 +1,436 @@
+
+$btn_sizes = (small 4 $font_size_button_small) (default 8 $font_size_button_default) (large 16 $font_size_button_large) (small-default 6 $font_size_button_small-default) (default-large 12 $font_size_button_default-large)
+
+
+$border_box = 0
+$border_rounded = 1000px
+$border_curved = 15px
+
+$border_default = $border_box
+
+.btn_border_box
+  border-radius $border_box
+.btn_border_rounded
+  border-radius $border_rounded
+
+.btn-group_placement_horizontal > .btn_border_rounded:first-child
+  border-radius $border_rounded 0 0 $border_rounded
+.btn-group_placement_horizontal > .btn_border_rounded:last-child
+  border-radius 0 $border_rounded $border_rounded 0
+
+.btn-group_placement_vertical > .btn_border_rounded:first-child
+  border-radius $border_rounded $border_rounded 0 0
+.btn-group_placement_vertical > .btn_border_rounded:last-child
+  border-radius 0 0 $border_rounded $border_rounded
+
+.btn_display_inline-block
+  display inline-block
+.btn_display_block
+  display block
+.btn_display_inline
+  display inline
+
+.btn:focus
+  outline none
+.btn
+  user-select none
+  cursor pointer
+  border none
+  text-align center
+  position relative
+  max-width 100%
+  @extend .btn_display_inline-block
+
+.btn__content
+  overflow hidden
+  text-overflow ellipsis
+  white-space nowrap
+
+
+.btn__icon_position_right > .btn__icon, .btn__icon_position_left > .btn__icon
+  position absolute
+  height 100%
+  top 0
+  display flex
+  align-items center
+
+.btn__icon > svg
+  display inline
+
+// .btn_size_default > .btn__icon > svg
+//   width get_rem_ratio($font_size_button)rem
+// .btn_size_small > .btn__icon > svg
+//   width get_rem_ratio($font_size_button_small)rem
+// .btn_size_large > .btn__icon > svg
+//   width get_rem_ratio($font_size_button_large)rem
+
+
+
+for $size, $i in $btn_sizes
+  .btn_size_{$size[0]} > .btn__icon > svg
+    width get_rem_ratio($size[2])rem
+  .btn_size_{$size[0]}
+    padding ($size[1])px ($size[1] * 2)px
+    font_button_{$size[0]}()
+  .btn_size_{$size[0]}.btn__icon_position_left > .btn__icon
+    left ($size[1])px
+  .btn_size_{$size[0]}.btn__icon_position_right > .btn__icon
+    right ($size[1])px
+  .btn_size_{$size[0]}.btn_icon-only
+    padding ($size[1])px ($size[1])px
+  .btn_size_{$size[0]}.btn_border_curved
+    border-radius ($size[1])px
+  .btn-group_placement_horizontal > .btn_size_{$size[0]}.btn_border_curved:first-child
+    border-radius ($size[1])px 0px 0px ($size[1])px
+  .btn-group_placement_horizontal > .btn_size_{$size[0]}.btn_border_curved:last-child
+    border-radius 0px ($size[1])px ($size[1])px 0px
+  .btn-group_placement_vertical > .btn_size_{$size[0]}.btn_border_curved:first-child
+    border-radius ($size[1])px ($size[1])px 0 0
+  .btn-group_placement_vertical > .btn_size_{$size[0]}.btn_border_curved:last-child
+    border-radius 0 0 ($size[1])px ($size[1])px
+  .btn_size_{$size[0]}.btn__icon_position_right.btn
+    padding-right "calc(%srem + %spx)" % (get_rem_ratio($size[2]) ($size[1] * 2))
+  .btn_size_{$size[0]}.btn__icon_position_left.btn
+    padding-left "calc(%srem + %spx)" % (get_rem_ratio($size[2]) ($size[1] * 2))
+// .btn_size_small
+//   padding 4px 8px
+//   font_button_small()
+// .btn_size_default
+//   padding 8px 16px
+//   font_button()
+// .btn_size_large
+//   padding 16px 32px
+//   font_button_large()
+
+// .btn_size_small.btn__icon_position_left > .btn__icon
+//   left 4px
+// .btn_size_small.btn__icon_position_right > .btn__icon
+//   right 4px
+
+// .btn_size_default.btn__icon_position_left > .btn__icon
+//   left 8px
+// .btn_size_default.btn__icon_position_right > .btn__icon
+//   right 8px
+
+// .btn_size_large.btn__icon_position_left > .btn__icon
+//   left 16px
+// .btn_size_large.btn__icon_position_right > .btn__icon
+//   right 16px
+
+// .btn_size_small.btn__icon_position_right.btn
+//   padding-right "calc(%srem + 8px)" % get_rem_ratio($font_size_button_small)
+// .btn_size_small.btn__icon_position_left.btn
+//   padding-left "calc(%srem + 8px)" % get_rem_ratio($font_size_button_small)
+
+// .btn_size_default.btn__icon_position_right.btn
+//   padding-right "calc(%srem + 16px)" % get_rem_ratio($font_size_button)
+// .btn_size_default.btn__icon_position_left.btn
+//   padding-left "calc(%srem + 16px)" % get_rem_ratio($font_size_button)
+
+// .btn_size_large.btn__icon_position_right.btn
+//   padding-right "calc(%srem + 32px)" % get_rem_ratio($font_size_button_large)
+// .btn_size_large.btn__icon_position_left.btn
+//   padding-left "calc(%srem + 32px)" % get_rem_ratio($font_size_button_large)
+
+.btn_icon-only > .btn__icon
+  position relative
+  font-size 0
+  line-height 0
+  letter-spacing -1
+// .btn_size_small.btn_icon-only
+//   padding 4px 4px
+// .btn_size_default.btn_icon-only
+//   padding 8px 8px
+// .btn_size_large.btn_icon-only
+//   padding 16px 16px
+
+.btn_type_fill
+  transition background-color .25s ease
+.btn_type_outline
+  transition background-color .25s ease, color .25s ease, border .25s ease
+.btn__icon > svg
+  transition fill .25s ease
+
+
+// Создание стилей для группы кнопок основная задача - просчет border если это horizontal или vertical
+
+//Для создания нечто универсального еще многое не учтено
+// К примеру как назначить тему активности к примеру я хотел бы что бы state default был darker а state active был brand - нам нужна перезапись состояния
+// я хочу назначать тему контета отдельно и тему основы отдельно при этом я хочу чтобы сохранялся фиксатор state
+// Вообще если так подумать получается конструктор к примеру есть разные темы для основы и разные темы для контента и у каждого у него по 3 состояния
+// В перспективе мы можем соберать ровно то что нужно назначать на каждое состояние кнопки свою тему основы и тему контента также мы можем учитывать content-only на каждом из них
+// Создание белой темы с вожмностью указания цвета контента
+
+
+.btn_disabled
+  pointer-events none
+  opacity: .65
+
+// states: default hover active
+
+// theme: color\fill\content-only
+
+
+
+
+
+
+for $color, $i in $colors
+  .btn_type_fill.btn_content_full.btn_theme_{$color}, .btn_type_fill.btn_content_full.btn_theme_{$color}.btn_state_default
+    background-color $color+"_normal"
+    fill $color+"_text"
+    color $color+"_text"
+  .btn_type_fill.btn_content_full.btn_theme_{$color}:hover, .btn_type_fill.btn_content_full.btn_theme_{$color}.btn_state_hover
+    background-color $color+"_hover"
+    fill $color+"_text"
+    color $color+"_text"
+  .btn_type_fill.btn_content_full.btn_theme_{$color}:active, .btn_type_fill.btn_content_full.btn_theme_{$color}.btn_state_active
+    background-color $color+"_border"
+    fill $color+"_text"
+    color $color+"_text"
+
+  .btn_type_outline.btn_content_full.btn_theme_{$color}, .btn_type_outline.btn_content_full.btn_theme_{$color}.btn_state_default
+    border 1px solid $color+"_normal"
+    background none
+    fill $color+"_normal"
+    color $color+"_normal"
+  .btn_type_outline.btn_content_full.btn_theme_{$color}:hover, .btn_type_outline.btn_content_full.btn_theme_{$color}.btn_state_hover
+    border 1px solid $color+"_hover"
+    background-color $color+"_hover"
+    fill $color+"_text"
+    color $color+"_text"
+  .btn_type_outline.btn_content_full.btn_theme_{$color}:active, .btn_type_outline.btn_content_full.btn_theme_{$color}.btn_state_active
+    border 1px solid $color+"_border"
+    background-color $color+"_border"
+    fill $color+"_text"
+    color $color+"_text"
+
+  .btn_type_fill.btn_content_only.btn_theme_{$color}, .btn_type_fill.btn_content_only.btn_theme_{$color}.btn_state_default
+    fill $color+"_normal"
+    color $color+"_normal"
+  .btn_type_fill.btn_content_only.btn_theme_{$color}:hover, .btn_type_fill.btn_content_only.btn_theme_{$color}.btn_state_hover
+    fill $color+"_hover"
+    color $color+"_hover"
+  .btn_type_fill.btn_content_only.btn_theme_{$color}:active, .btn_type_fill.btn_content_only.btn_theme_{$color}.btn_state_active
+    fill $color+"_border"
+    color $color+"_border"
+
+  .btn_type_outline.btn_content_only.btn_theme_{$color}, .btn_type_outline.btn_content_only.btn_theme_{$color}.btn_state_default
+    fill $color+"_normal"
+    color $color+"_normal"
+  .btn_type_outline.btn_content_only.btn_theme_{$color}:hover, .btn_type_outline.btn_content_only.btn_theme_{$color}.btn_state_hover
+    fill $color+"_hover"
+    color $color+"_hover"
+  .btn_type_outline.btn_content_only.btn_theme_{$color}:active, .btn_type_outline.btn_content_only.btn_theme_{$color}.btn_state_active
+    fill $color+"_border"
+    color $color+"_border"
+
+
+
+for $color, $i in $colors
+  .btn_type_fill.btn_content_full.btn_theme-wrapper-normal_{$color}, .btn_type_fill.btn_content_full.btn_theme-wrapper-normal_{$color}.btn_state_default
+    background-color $color+"_normal"
+  // Theme Wrapper Outline
+  .btn_type_outline.btn_content_full.btn_theme-wrapper-normal_{$color}, .btn_type_outline.btn_content_full.btn_theme-wrapper-normal_{$color}.btn_state_default
+    border 1px solid $color+"_normal"
+    background none
+  .btn_type_fill.btn_content_full.btn_theme-content-normal_{$color},.btn_type_fill.btn_content_full.btn_theme-content-normal_{$color}.btn_state_default
+    fill $color+"_text"
+    color $color+"_text"
+  .btn_type_outline.btn_content_full.btn_theme-content-normal_{$color}, .btn_type_outline.btn_content_full.btn_theme-content-normal_{$color}.btn_state_default
+    fill $color+"_normal"
+    color $color+"_normal"
+  .btn_content_only.btn_theme-content-normal_{$color}, .btn_content_only.btn_theme-content-normal_{$color}.btn_state_default, .btn_content-theme_reverse-normal.btn_content_full.btn_theme-content-normal_{$color}, .btn_content-theme_reverse-normal.btn_content_full.btn_theme-content-normal_{$color}.btn_state_default
+    fill $color+"_normal"
+    color $color+"_normal"
+
+
+
+
+
+for $color, $i in $colors
+  .btn_type_fill.btn_content_full.btn_theme-wrapper-hover_{$color}:hover, .btn_type_fill.btn_content_full.btn_theme-wrapper-hover_{$color}.btn_state_hover
+    background-color $color+"_hover"
+  .btn_type_outline.btn_content_full.btn_theme-wrapper-hover_{$color}:hover, .btn_type_outline.btn_content_full.btn_theme-wrapper-hover_{$color}.btn_state_hover
+    border 1px solid $color+"_hover"
+    background-color $color+"_hover"
+  .btn_type_fill.btn_content_full.btn_theme-content-hover_{$color}:hover,.btn_type_fill.btn_content_full.btn_theme-content-hover_{$color}.btn_state_hover
+    fill $color+"_text"
+    color $color+"_text"
+  .btn_type_outline.btn_content_full.btn_theme-content-hover_{$color}:hover, .btn_type_outline.btn_content_full.btn_theme-content-hover_{$color}.btn_state_hover
+    fill $color+"_text"
+    color $color+"_text"
+  .btn_content_only.btn_theme-content-hover_{$color}:hover, .btn_content_only.btn_theme-content-hover_{$color}.btn_state_hover, .btn_content-theme_reverse-hover.btn_content_full.btn_theme-content-hover_{$color}:hover, .btn_content-theme_reverse-hover.btn_content_full.btn_theme-content-hover_{$color}.btn_state_hover
+    fill $color+"_hover"
+    color $color+"_hover"
+
+
+for $color, $i in $colors
+  .btn_type_fill.btn_content_full.btn_theme-wrapper-active_{$color}:active, .btn_type_fill.btn_content_full.btn_theme-wrapper-active_{$color}.btn_state_active
+    background-color $color+"_border"
+  .btn_type_outline.btn_content_full.btn_theme-wrapper-active_{$color}:active, .btn_type_outline.btn_content_full.btn_theme-wrapper-active_{$color}.btn_state_active
+    border 1px solid $color+"_border"
+    background-color $color+"_border"
+  .btn_type_fill.btn_content_full.btn_theme-content-active_{$color}:active,.btn_type_fill.btn_content_full.btn_theme-content-active_{$color}.btn_state_active
+    fill $color+"_text"
+    color $color+"_text"
+  .btn_type_outline.btn_content_full.btn_theme-content-active_{$color}:active, .btn_type_outline.btn_content_full.btn_theme-content-active_{$color}.btn_state_active
+    fill $color+"_text"
+    color $color+"_text"
+  .btn_content_only.btn_theme-content-active_{$color}:active, .btn_content_only.btn_theme-content-active_{$color}.btn_state_active, .btn_content-theme_reverse-active.btn_content_full.btn_theme-content-active_{$color}:active, .btn_content-theme_reverse-active.btn_content_full.btn_theme-content-active_{$color}.btn_state_active
+    fill $color+"_border"
+    color $color+"_border"
+  // .btn_type_fill.btn_content_full.btn_theme-wrapper-normal_{$color}
+  //   {($color)_test}
+
+// for $color, $i in $colors
+//   .btn_theme_{$color}.btn_type_fill.btn_content_full, .btn_theme_{$color}.btn_type_fill.btn_state_default.btn_content_full
+//     fill $color+"_text"
+//     background-color $color+"_normal"
+//     color $color+"_text"
+//   .btn_theme_{$color}.btn_type_outline.btn_content_full, .btn_theme_{$color}.btn_type_outline.btn_state_default.btn_content_full
+//     fill $color+"_normal"
+//     border 1px solid $color+"_normal"
+//     color $color+"_normal"
+//     background none
+//   .btn_theme_{$color}:hover.btn_type_fill.btn_content_full, .btn_theme_{$color}.btn_type_fill.btn_state_hover.btn_content_full
+//     fill $color+"_text"
+//     background-color $color+"_hover"
+//     color $color+"_text"
+//   .btn_theme_{$color}:hover.btn_type_outline.btn_content_full, .btn_theme_{$color}.btn_type_outline.btn_state_hover.btn_content_full
+//     fill $color+"_text"
+//     border 1px solid $color+"_hover"
+//     background-color $color+"_hover"
+//     color $color+"_text"
+//   .btn_theme_{$color}:active.btn_type_fill.btn_content_full, .btn_theme_{$color}.btn_type_fill.btn_state_active.btn_content_full
+//     fill $color+"_text"
+//     background-color $color+"_border"
+//     color $color+"_text"
+//   .btn_theme_{$color}:active.btn_type_outline.btn_content_full, .btn_theme_{$color}.btn_type_outline.btn_state_active.btn_content_full
+//     fill $color+"_text"
+//     border 1px solid $color+"_border"
+//     color $color+"_text"
+//     background-color $color+"_border"
+
+//   .btn_theme_{$color}.btn_type_fill.btn_content_only, .btn_theme_{$color}.btn_type_fill.btn_state_default.btn_content_only, .btn_theme_{$color}.btn_type_outline.btn_content_only, .btn_theme_{$color}.btn_type_outline.btn_state_default.btn_content_only
+//     fill $color+"_normal"
+//     color $color+"_normal"
+//   .btn_theme_{$color}:hover.btn_type_fill.btn_content_only, .btn_theme_{$color}.btn_type_fill.btn_state_hover.btn_content_only, .btn_theme_{$color}:hover.btn_type_outline.btn_content_only, .btn_theme_{$color}.btn_type_outline.btn_state_hover.btn_content_only
+//     fill $color+"_hover"
+//     color $color+"_hover"
+//   .btn_theme_{$color}:active.btn_type_fill.btn_content_only, .btn_theme_{$color}.btn_type_fill.btn_state_active.btn_content_only, .btn_theme_{$color}:active.btn_type_outline.btn_content_only, .btn_theme_{$color}.btn_type_outline.btn_state_active.btn_content_only
+//     fill $color+"_border"
+//     color $color+"_border"
+
+//   .btn_type_outline:hover.btn_content_full.btn_white-theme_{$color}_state_default, .btn_type_outline:active.btn_content_full.btn_white-theme_{$color}_state_default, .btn_type_fill.btn_content_full.btn_white-theme_{$color}_state_default
+//     fill $color+"_normal"
+//     color $color+"_normal"
+//   .btn_type_outline:hover.btn_content_full.btn_white-theme_{$color}_state_hover, .btn_type_outline:active.btn_content_full.btn_white-theme_{$color}_state_hover, .btn_type_fill.btn_content_full.btn_white-theme_{$color}_state_hover
+//     fill $color+"_hover"
+//     color $color+"_hover"
+//   .btn_type_outline:hover.btn_content_full.btn_white-theme_{$color}_state_active, .btn_type_outline:active.btn_content_full.btn_white-theme_{$color}_state_active, .btn_type_fill.btn_content_full.btn_white-theme_{$color}_state_active
+//     fill $color+"_border"
+//     color $color+"_border"
+
+
+
+
+// .btn_theme_white.btn_type_fill.btn_content_full, .btn_theme_white.btn_type_fill.btn_state_default.btn_content_full
+//   background-color #ffffff
+// .btn_theme_white:hover.btn_type_fill.btn_content_full, .btn_theme_white.btn_type_fill.btn_state_hover.btn_content_full
+//   background-color gray_100
+// .btn_theme_white:active.btn_type_fill.btn_content_full, .btn_theme_white.btn_type_fill.btn_state_active.btn_content_full
+//   background-color gray_300
+
+// .btn_theme_white.btn_type_outline.btn_content_full, .btn_theme_white.btn_type_outline.btn_state_default.btn_content_full
+//   background none
+//   border 1px solid white
+
+// .btn_theme_white:hover.btn_type_outline.btn_content_full, .btn_theme_white.btn_type_outline.btn_state_hover.btn_content_full
+//   border 1px solid gray_100
+//   background-color gray_100
+// .btn_theme_white:active.btn_type_outline.btn_content_full, .btn_theme_white.btn_type_outline.btn_state_active.btn_content_full
+//   border 1px solid gray_300
+//   background-color gray_300
+
+.btn_link
+  text-decoration none
+.btn_link:hover
+  text-decoration underline
+
+a > .btn_content_only
+  @extend .btn_link
+
+a > .btn_content_only:hover
+  @extend .btn_link:hover
+
+
+.btn_text-transform_none
+  text-transform none
+.btn_text-transform_uppercase
+  text-transform uppercase
+.btn_text-transform_lowercase
+  text-transform lowercase
+.btn_text-transform_capitalize
+  text-transform capitalize
+
+
+// a > .btn
+//   @extend .btn_link
+
+// a > .btn:hover
+//   @extend .btn_link:hover
+
+// .btn_size_small.btn_border_curved
+//   border-radius 4px
+// .btn_size_default.btn_border_curved
+//   border-radius 8px
+// .btn_size_large.btn_border_curved
+//   border-radius 16px
+
+// .btn, button,input[type="submit"]
+//   margin 0px
+.btn-group
+  padding 0
+  margin 0
+  overflow hidden
+  display flex
+  flex-wrap nowrap
+  flex-direction row
+
+.btn-group_placement_horizontal
+  flex-direction row
+.btn-group_placement_vertical
+  flex-direction column
+
+.btn-group > .btn
+  margin 0
+  flex-basis 100%
+  border-radius 0
+
+.btn-group_placement_horizontal > .btn_type_outline.btn_content_full
+  margin-left -1px
+.btn-group_placement_horizontal > .btn_type_outline.btn_content_full:first-child
+  margin-left 0
+
+.btn-group_placement_vertical > .btn_type_outline.btn_content_full
+  margin-top -1px
+.btn-group_placement_vertical > .btn_type_outline.btn_content_full:first-child
+  margin-top 0
+
+button,input[type="submit"]
+  @extend .btn
+  @extend .btn_size_default
+  @extend .btn_type_outline
+  @extends .btn_type_outline.btn_content_full.btn_theme_primary
+  @extend .btn_border_rounded
+  @extend .btn_display_inline-block
+
+
+button:hover,input[type="submit"]:hover
+  @extends .btn_type_outline.btn_content_full.btn_theme_primary:hover
+
+button:active,input[type="submit"]:active
+  @extends .btn_type_outline.btn_content_full.btn_theme_primary:active
+button:focus,input[type="submit"]:focus
+  @extend .btn:focus

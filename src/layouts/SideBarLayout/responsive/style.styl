@@ -1,0 +1,23 @@
+@media (max-width: 576px)
+  .messenger__side-bar
+    position relative
+    z-index 3
+  // .messenger__side-bar
+  //   display none
+  // .messenger__side-bar.messenger__start-page
+  //   z-index 1
+  // .messenger__content.messenger__start-page
+  //   display none
+  // .messenger__side-bar.messenger__other-page
+  //   display none
+  // .messenger__content.messenger__other-page
+  //   z-index 1
+@media (min-width: 576px) and (max-width: 767px)
+  @import "./sm"
+@media (min-width: 768px) and (max-width: 991px)
+  @import "./md"
+@media (min-width: 992px) and (max-width: 1199px)
+  @import "./lg"
+@media (min-width: 1200px)
+  @import "./elg"
+

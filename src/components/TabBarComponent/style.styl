@@ -1,0 +1,32 @@
+@import "~@assets/theme/variables"
+@import "~@assets/theme/mixins"
+
+
+.tab-bar
+  border-top 1px solid secondary_hover
+  max-height 50px
+
+
+
+.btn-group
+  justify-content space-around
+  flex-basis 25%
+  display flex
+  flex-wrap nowrap
+  flex-direction row
+  align-items center
+  height 100%
+  min-height 50px
+
+.btn-group > .btn
+  padding-top 0
+  padding-bottom 0
+  padding-left 0
+  padding-right 0
+  flex-grow 1
+.btn-group > .btn
+  flex-basis auto
+
+  //height 22px
+
+@import "./responsive/style"

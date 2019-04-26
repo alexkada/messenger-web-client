@@ -1,0 +1,28 @@
+@import "~@assets/theme/variables"
+@import "~@assets/theme/mixins"
+
+.editor-bar
+  width 100%
+  height 50px
+  max-height 50px
+  min-height 50px
+  max-width 100%
+  display flex
+  align-items center
+  // padding 0 10px
+
+.editor-bar__title
+  text-align center
+  flex-grow 1
+  color lighter_normal
+  font_text()
+  font-weight bold
+  white-space nowrap
+  text-overflow ellipsis
+  overflow hidden
+
+.editor-bar__prev-button .btn__content, .editor-bar__save-button  .btn__content
+  text-transform none
+  font_text()
+
+@import "./responsive/style"

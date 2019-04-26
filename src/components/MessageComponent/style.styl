@@ -1,0 +1,44 @@
+@import "~@assets/theme/variables"
+@import "~@assets/theme/mixins"
+
+
+.message
+  padding 0 25px
+  display flex
+  margin-top 20px
+
+.message-photo
+  margin-left 0px
+
+.message-info
+  flex-grow 1
+  margin-left 15px
+  display flex
+  flex-wrap wrap
+  align-items center
+.message-date
+  margin-right 0px
+.message-name
+  font_text()
+  color secondary_light_text
+  flex-grow 1
+.message-text
+  font_text()
+  color lighter_normal
+  flex-basis 100%
+  padding-right 10px
+
+.message-date
+  font_text()
+  color lighter_normal
+.message-status svg
+  width 10px !important
+.message-status
+  pointer-events none
+  width 13px
+  height 13px
+  margin-left 10px
+  margin-right 8px
+  padding 0 !important
+
+@import "./responsive/style"

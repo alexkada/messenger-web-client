@@ -1,0 +1,35 @@
+MessageSingleLayout
+  template(slot="topBar")
+    .chat-info-bar
+      ButtonElement(icon="back", theme="brand", @click.native="setAnimation('prev');$router.back();" :contentOnly="true").icon-tab.icon-back
+      UrlImageElement(src="/static/avatars/3.jpg" @click.native="setAnimation('next');$router.push({name:'viewAccount', params: {accountId: 1}});").chat-info__photo
+      .chat-info__info(@click="setAnimation('next');$router.push({name:'viewAccount', params: {accountId: 1}});")
+        .chat-info__title Alisa Resta
+        .chat-info__type Был(а) недавно
+      .chat-info__menu
+        ButtonElement(icon="more" theme="brand" @click.native="menuToogle" :contentOnly="true").icon-tab
+        .chat-menu-elements(v-if="menuStatus")
+          ButtonElement(icon="edit" border="box" theme="purplet"  @click.native="setAnimation('next');$router.push({name:'editAccount', params: {accountId: 1}});") Редактировать
+          ButtonElement(icon="info" border="box" theme="purplet" @click.native="setAnimation('next');$router.push({name:'viewAccount', params: {accountId: 1}});") Информация
+          ButtonElement(icon="remove" border="box" theme="purplet") Покинуть
+  .content-page
+    MessageComponent(type="recipient", status="sent") Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate ad aspernatur vitae! Praesentium explicabo alias eaque eos. Eligendi consequatur in deserunt impedit, harum fuga commodi error voluptatum eos. Beatae, commodi.
+    MessageComponent(type="sender", status="sending") Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab deleniti vel dolores accusantium doloribus, ullam sed dolore eum ratione animi sequi cumque repellendus eaque asperiores voluptatem! Possimus non suscipit rem.
+    MessageComponent(type="recipient", status="delivered") Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda illo ut asperiores necessitatibus natus sunt laborum perferendis optio officia facilis at animi velit ipsa beatae, harum sapiente dolore accusamus voluptas!
+    MessageComponent(type="sender", status="sent") Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores repellat aliquam blanditiis repudiandae vitae? Rerum at vero ea incidunt dicta quidem commodi perferendis saepe non quod quam, enim debitis animi!
+    MessageComponent(type="recipient", status="sending") Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga molestiae aliquid officia consectetur delectus laborum ipsam, itaque enim maxime eaque sequi dolorem odio sint dolor quod ad repellendus. Corporis, laudantium.
+    MessageComponent(type="sender", status="delivered") Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore laboriosam corrupti optio ipsa dolore quis alias aperiam corporis autem soluta. Sunt impedit, quaerat eum eius minus autem voluptate in consequatur?
+    MessageComponent(type="sender", status="sent") Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore laboriosam corrupti optio ipsa dolore quis alias aperiam corporis autem soluta. Sunt impedit, quaerat eum eius minus autem voluptate in consequatur?
+    MessageComponent(type="sender", status="sending") Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore laboriosam corrupti optio ipsa dolore quis alias aperiam corporis autem soluta. Sunt impedit, quaerat eum eius minus autem voluptate in consequatur?
+    MessageComponent(type="sender", status="delivered") Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore laboriosam corrupti optio ipsa dolore quis alias aperiam corporis autem soluta. Sunt impedit, quaerat eum eius minus autem voluptate in consequatur?
+    MessageComponent(type="sender", status="sent") Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore laboriosam corrupti optio ipsa dolore quis alias aperiam corporis autem soluta. Sunt impedit, quaerat eum eius minus autem voluptate in consequatur?
+    MessageComponent(type="sender", status="sending") Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore laboriosam corrupti optio ipsa dolore quis alias aperiam corporis autem soluta. Sunt impedit, quaerat eum eius minus autem voluptate in consequatur?
+    MessageComponent(type="sender", status="delivered") Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore laboriosam corrupti optio ipsa dolore quis alias aperiam corporis autem soluta. Sunt impedit, quaerat eum eius minus autem voluptate in consequatur?
+    MessageComponent(type="sender", status="sent") Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore laboriosam corrupti optio ipsa dolore quis alias aperiam corporis autem soluta. Sunt impedit, quaerat eum eius minus autem voluptate in consequatur?
+    MessageComponent(type="sender", status="sending") Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore laboriosam corrupti optio ipsa dolore quis alias aperiam corporis autem soluta. Sunt impedit, quaerat eum eius minus autem voluptate in consequatur?
+  template(slot="bottomBar")
+    .sender-message-interface
+      input(type="file", style="display:none;").file_message_input
+      ButtonElement(icon="attach" :contentOnly="true" theme="brand" @click.native="fileAction").icon-tab-message
+      TextComponent(type="block" labelPosition="placeholder" label="Написать..." :isEnd="true")
+      ButtonElement(icon="sent" :contentOnly="true", theme="brand" @click.native="sendAction").icon-tab-message

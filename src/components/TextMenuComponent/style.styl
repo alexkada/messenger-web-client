@@ -1,0 +1,19 @@
+@import "~@assets/theme/variables"
+@import "~@assets/theme/mixins"
+
+
+.text-menu-component
+  border-bottom 1px solid secondary_hover
+  padding 8px 0
+
+.text-menu-component__title
+  color brand_normal
+  font_text()
+  font-weight mediumWeight
+  cursor pointer
+
+.text-menu-component__theme_brand
+  color brand_normal
+.text-menu-component__theme_danger
+  color danger_normal
+@import "./responsive/style"

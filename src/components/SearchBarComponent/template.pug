@@ -1,0 +1,16 @@
+div
+  BarComponent.search-bar-elem(style="z-index:3;position:relative;")
+    .input-search
+      ButtonElement(icon="delete", v-if="open" :contentOnly="true", theme="darker", @click.native="closeSearchAction" size="small").exit-search
+      input(type="text" v-model="search" placeholder="Search...", @focus="openSearchAction" :class="[open ? 'full-search-input' : '']").search-bar__input-search
+    // IconElement(src="create" @click="createMenuAction").search-bar__create
+    .search-bar-menu
+      ButtonElement(icon="create", theme="brand" size="default", :contentOnly="true", state="default", @click.native="menuToogle").icon-tab
+      .chat-menu-elements(v-if="menuStatus")
+        ButtonElement(icon="speech" border="box" theme="purplet" @click.native="pushAnimation({name:'addChat'},'next')") Создать чат
+        ButtonElement(icon="group" border="box" theme="purplet" @click.native="pushAnimation({name:'addGroup'},'next')") Создать группу
+        ButtonElement(icon="megaphone" border="box" theme="purplet"  @click.native="pushAnimation({name:'addChannel'},'next')") Создать канал
+  transition(enter-active-class="animated faster slideInDown " leave-active-class="'animated faster slideOutUp ")
+    .search-bar__content(v-if="open", style="transition-duration:.5s;")
+      SearchContentComponent(:search="search")
+

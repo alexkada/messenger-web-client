@@ -1,0 +1,37 @@
+.notification-center-wrapper(:style="{height: opts.backdrop > 0 && this.countNotify.all > 0 ? '100%' : 'auto'}")
+  .notification-center__backdrop(v-if="opts.backdrop > 0 && this.countNotify.all > 0" :style="{'z-index':opts.zIndex, 'background': 'rgba(0,0,0,'+opts.backdrop+')'}")
+  TransitionGroup(v-for="(position, i) in notifyPositions",
+                  :key="i",
+                  tag="div",
+                  :style="{'z-index':opts.zIndex + 1, 'padding':getSize(position) > 0 ? opts.offsetY + ' ' +opts.offsetX : '0'}"
+                  :class="['notification-center', 'notification-center_position_'+position, opts.pauseOnHover ? 'notification-center_hover-pause' : '']"
+                  :enter-active-class="'animated faster '+namesNotification[position].enter",
+                  :leave-active-class="'animated faster '+namesNotification[position].leave"
+                  )
+    component(
+                v-for="(alert, index) in getStorage(position)",
+                :is="alert.settings.component",
+                :key="alert.id",
+                :title="alert.title",
+                :style="getStyleAlert(position)",
+                :theme="alert.theme",
+                :icon="alert.settings.icon",
+                :iconType="alert.settings.iconType",
+                :type="alert.settings.type",
+                :isClose="alert.settings.isClose",
+                :border="alert.settings.border",
+                :buttons="alert.settings.buttons",
+                @closeEvent="closeHandler(alert)",
+                @mouseenter.native="opts.pauseOnHover ? mouseEnter(alert) : ''",
+                @mouseleave.native="opts.pauseOnHover ? mouseLeave(alert) : ''",
+                @click.native="opts.closeOnClick ? closeHandler(alert): ''",
+                :progressDuration="getDuration()",
+                :showProgress="opts.showProgressBar && alert.settings.autoClose",
+                :alert="alert",
+                :isCloseEvent="true") {{alert.message}}
+
+
+
+
+
+

@@ -1,0 +1,5 @@
+mutation registrationAccount($account:AccountInput!, $invite: String!){
+  registration(account: $account, invite: $invite) {
+    id
+  }
+}

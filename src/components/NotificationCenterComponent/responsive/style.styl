@@ -1,0 +1,37 @@
+@media (max-width: 576px)
+  .notification-center-wrapper
+    flex-wrap wrap
+  .notification-center-wrapper__left,.notification-center-wrapper__right,.notification-center-wrapper__center
+    flex-grow 1
+  .notification-center-wrapper .alert
+    max-width 100%
+  .notification-center-wrapper
+    position absolute
+    top 0
+    left 0
+    width 100%
+  .notification-center
+    position relative
+  .notification-center_position_left-top,
+  .notification-center_position_left-bottom,
+  .notification-center_position_left-center,
+  .notification-center_position_center-top,
+  .notification-center_position_center-bottom,
+  .notification-center_position_center-center,
+  .notification-center_position_right-top,
+  .notification-center_position_right-bottom,
+  .notification-center_position_right-center
+    left 0
+    right 0
+    bottom 0
+    top 0
+    transform none
+@media (min-width: 576px) and (max-width: 767px)
+  @import "./sm"
+@media (min-width: 768px) and (max-width: 991px)
+  @import "./md"
+@media (min-width: 992px) and (max-width: 1199px)
+  @import "./lg"
+@media (min-width: 1200px)
+  @import "./elg"
+

@@ -1,0 +1,5 @@
+.avatar-component(:class="[isChange ? 'avatar-component__change' : '']")
+  input(type="file", ref="file_input" style="display:none;" v-if="isChange" @change="changeFileAction" accept="image/*")
+  .avatar-component__no-avatar(:style="styles" @click="changeAction" v-if="!avatar")
+    IconElement(src="camera")
+  .avatar-component__avatar(:style="styles" @click="changeAction" v-if="avatar")

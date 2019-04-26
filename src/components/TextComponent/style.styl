@@ -1,0 +1,76 @@
+@import "~@assets/theme/variables"
+@import "~@assets/theme/mixins"
+
+
+.text-component
+  width 100%
+
+.text-component__block
+  display flex
+  flex-wrap nowrap
+  flex-direction row
+
+
+.text-component > .text-component__block
+  border-bottom 1px solid secondary_hover
+
+.text-component.text-component__end > .text-component__block
+  border none
+
+
+.text-component__label, .text-component input, .text-component textarea
+  padding 10px 0px
+
+.text-component__label
+  padding-right 16px
+  white-space nowrap
+  min-width auto
+
+.text-component .text-component__field
+  flex-grow 1
+.text-component input, .text-component textarea
+  width 100%
+
+
+
+.text-component input::placeholder, .text-component textarea::placeholder
+  color secondary_lighter_text
+  font_text()
+
+.text-component input[placeholder]
+  text-overflow ellipsis
+
+
+.text-component__description
+  flex-basis 100%
+
+
+.text-component input
+  border none
+  text-shadow none
+  box-shadow none
+  -webkit-appearance none
+  color lighter_normal
+  font_text()
+  font-weight mediumWeight
+
+.text-component textarea
+  resize none
+  box-shadow none
+  text-shadow none
+  outline none
+  min-height auto
+  color:lighter_normal
+  font_text()
+  border none
+  overflow hidden
+
+.text-component__description
+  font_text_small()
+  padding 5px
+  color secondary_lighter_text
+
+
+.text-component.text-component__end > .text-component__description
+  border-top 1px solid secondary_hover
+@import "./responsive/style"

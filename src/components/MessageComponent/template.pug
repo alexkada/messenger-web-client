@@ -1,0 +1,8 @@
+.message
+  AvatarComponent(size="40px" src="/static/avatars/3.jpg").message-photo
+  .message-info
+    .message-name Name
+    ButtonElement(:icon="status == 'sent' || status == 'delivered' ? 'checkmark' : null" :state="status == 'delivered' ? 'active' : 'default'"  size="small" border="rounded" type="outline" theme="brand").message-status
+    .message-date 01.12.18
+    .message-text: slot
+

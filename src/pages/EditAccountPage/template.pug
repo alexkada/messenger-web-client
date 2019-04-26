@@ -1,0 +1,13 @@
+MessageSingleLayout
+  template(slot="topBar")
+    EditorBarComponent(titleText="Информация", saveText="Готово")
+  .content-page
+    .change-account-form
+      .view-account__info-data
+        AvatarComponent(src="/static/avatars/3.jpg" size="65px")
+        .view-account__info
+          TextComponent(labelPosition="placeholder" label="Имя" v-model="firstname")
+          TextComponent(labelPosition="placeholder" label="Фамилия"  v-model="lastname")
+      .view-account__text-info
+      .view-account__text-menu
+        TextMenuComponent(title="Удалить Контакт" theme="danger")

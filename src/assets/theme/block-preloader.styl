@@ -1,0 +1,43 @@
+$loadersNames = puff audio ball-triangle bars circles grid hearts oval rings spinning-circles tail-spin three-dots
+$loadersSizes = (responsive 50% 50%) (default 30px 30px) (small 20px 20px) (large 60px 60px)
+$loadersThemes = (default rgba(0,0,0,.7)) (lighter rgba(255,255,255, .7))
+$loadersPositions = (center center center) (left center left) (right center right)
+
+for $theme, $i in $loadersThemes
+  .block-preloader_theme_{$theme[0]}
+    background-color $theme[1]
+
+for $name, $i in $loadersNames
+  .block-preloader_loader_{$name}
+    $name = "~!url-loader!@assets/loaders/%s.svg" % $name
+    background-image url($name)
+
+for $position, $i in $loadersPositions
+  .block-preloader_position_{$position[0]}
+    background-position $position[1] $position[2]
+
+for $size, $i in $loadersSizes
+  .block-preloader_size_{$size[0]}
+    background-size $size[1] $size[2]
+
+
+.block-preloader
+  pointer-events none
+  overflow hidden
+  user-select none
+  position relative
+
+.block-preloader:before
+  position absolute
+  z-index 9999999999999999999999999999999
+  width 100%
+  height 100%
+  content ""
+  top 0
+  left 0
+  background-repeat no-repeat
+  //background url("~url-loader!@assets/loaders/puff.svg") center center no-repeat rgba(0,0,0,.7)
+  @extend .block-preloader_size_default
+  @extend .block-preloader_loader_puff
+  @extend .block-preloader_theme_default
+  @extend .block-preloader_position_center

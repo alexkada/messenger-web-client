@@ -1,0 +1,10 @@
+.text-message
+  padding $space_mirco
+  border-radius (8 / 2)px
+  font_text()
+
+
+for $color, $i in $colors
+  .text-message_type_{$color}
+    color $color+"_text"
+    background-color $color+"_normal"

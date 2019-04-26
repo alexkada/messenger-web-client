@@ -1,0 +1,13 @@
+MessageSingleLayout
+  template(slot="topBar")
+    EditorBarComponent(titleText="Информация", saveText="Готово")
+  .content-page
+    .change-account-form
+      .view-account__info-data
+        AvatarComponent(src="" size="65px" isChange="true")
+        .view-account__info
+          TextComponent(labelPosition="placeholder" label="Название канала" v-model="channelName")
+      .view-account__text-info
+        TextComponent(labelPosition="placeholder" type="block" label="Описание" description="Можете указать дополнительную информацию о канале" v-model="about")
+      .view-account__text-menu
+        TextMenuComponent(title="Удалить Канал" theme="danger")

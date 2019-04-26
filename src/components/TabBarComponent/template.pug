@@ -1,0 +1,6 @@
+BarComponent.tab-bar
+  ButtonGroupElement(:contentOnly="true", textTransform="none" iconPosition="top" theme="brand",  size="default")
+    ButtonElement(icon="user"  @click.native="contactsAction != null ? contactsAction() : $router.push({name: 'contacts'})" :state="stateBar != null ? stateAction('contacts') : ($route.name == 'contacts' ? 'active' : 'default')").icon-tab Контакты
+    ButtonElement(icon="phone" @click.native="callsAction != null ? callsAction() : $router.push({name: 'calls'})" :state="stateBar != null ? stateAction('calls') : ($route.name == 'calls' ? 'active' : 'default')").icon-tab Звонки
+    ButtonElement(icon="chat-room" @click.native="chatsAction != null ? chatsAction() : $router.push({name: 'chats'})" :state="stateBar != null ? stateAction('chats') : (this.$route.name == 'chats' ? 'active' : 'default')").icon-tab Чаты
+    ButtonElement(icon="settings" @click.native="settingsAction != null ? settingsAction() : $router.push({name: 'settings'})" :state="stateBar != null ? stateAction('settings') : ($route.name == 'settings' ? 'active' : 'default')").icon-tab Настройки

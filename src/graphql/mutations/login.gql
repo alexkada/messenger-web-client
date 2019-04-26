@@ -1,0 +1,5 @@
+mutation loginAccount($account:AccountInput!){
+  login(account: $account) {
+    token,id,firstName,lastName,nickName,description,position,phone,email,isConfigured, photo{id,mimetype, filename, ext}
+  }
+}

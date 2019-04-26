@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "strict": false,
+        "module": "es6",
+        "moduleResolution": "node",
+        "target": "es6",
+        "allowSyntheticDefaultImports": true,
+        "removeComments": true,
+        "sourceMap": true,
+        "experimentalDecorators": true,
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "baseUrl": "types",
+        "typeRoots": ["types","./types/"],
+    },
+    "include": [
+      "types/*",
+      "./src/**/*"
+
+    ]
+}

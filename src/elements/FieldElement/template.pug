@@ -1,0 +1,4 @@
+.field-element-container(contenteditable="false")
+  .field-element-padding-container(contenteditable="false")
+    .field-element(contenteditable="true" @keydown="down" @focus="focus" @blur="blur" @input="input") {{text}}
+    .field-element__placeholder(contenteditable="false" v-show="visiblePlaceHolder") {{placeholder}}
